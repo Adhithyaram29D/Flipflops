@@ -43,16 +43,77 @@ In T flip flop, "T" defines the term "Toggle". In SR Flip Flop, we provide only 
 
 
 ## Program:
-
-
+1.SR FliplFlop
+```
+ module exp5a(s,r,clk,q,qbar);
+ input s,r,clk;
+ output reg q;
+ output qbar;
+ always@(posedge clk)
+ begin
+  q=s|((~r)&q);
+ end
+ assign qbar=~q;
+ endmodule
+```
+2.D Flipflop
+```
+module exp5b(d,clk,q,qbar);
+input d,clk;
+output reg q;
+output qbar;
+always@(posedge clk)
+begin
+  q=((~q)&d)|(q&d);
+end
+assign qbar=~q;
+endmodule
+```
+3.JK Flipflop
+```
+module exp5c(j,k,clk,q,qbar);
+input j,k,clk;
+output reg q;
+output qbar;
+always@(posedge clk)
+begin
+ q=((~q)&j)|(q&(~k));
+end
+assign qbar=~q;
+endmodule
+```
+4.T Flipflop
+```
+module exp5d(t,clk,q,qbar);
+input t,clk;
+output reg q;
+output qbar;
+always@(posedge clk)
+begin
+ q=((~q)&t)|(q&(~t));
+end
+assign qbar=~q;
+endmodule
+```
 ## RTL Schematic:
-
-
-
+## 1.SR Flipflop
+![sr rtl](https://github.com/Adhithyaram29D/Flipflops/assets/119393540/d767366f-b7f4-43cb-ba6b-f54085f4af69)
+## 2.D Flipflop
+![d rtl](https://github.com/Adhithyaram29D/Flipflops/assets/119393540/2e0886cf-6a0a-4c39-8a51-138e85af86bb)
+## 3.JK Flipflop
+![jk rtl](https://github.com/Adhithyaram29D/Flipflops/assets/119393540/0ae38428-60e5-4aed-a254-5456ed338b18)
+## 4.T Fliplflop
+![t rtl](https://github.com/Adhithyaram29D/Flipflops/assets/119393540/239d5a96-8e1e-40e1-9e54-191ccd16618d)
 
 ## Timing Diagram:
-
-
+## 1.SR FlipFlop
+![sr timing](https://github.com/Adhithyaram29D/Flipflops/assets/119393540/e581d45a-2edd-4b03-a303-80bcb5f66303)
+## 2.D Flipflop
+![d timing](https://github.com/Adhithyaram29D/Flipflops/assets/119393540/fc802773-fdc9-4720-b390-2ca2454af8f4)
+## 3.JK Flipflop
+![jk timing](https://github.com/Adhithyaram29D/Flipflops/assets/119393540/e0d3bd2f-29ba-405a-bed1-99da45f0130f)
+## 4.T Flipflop
+![t timing](https://github.com/Adhithyaram29D/Flipflops/assets/119393540/cdd55781-b290-4a16-9943-4585f839d9e0)
 
 ## Result:
 Thus the SR, D, JK and T flipflops are implemented and the characteristic tables are verified.
